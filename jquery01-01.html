@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 1-1</title>
+    <!-- <script src="./jquery-3.5.1.js"></script> -->
+    <!-- jquery 사용방법 -->
+    <!-- 1. jquery 사이트에서 jquery 파일을 다운로드 해서 사용 -->
+        <!-- 자신의 서버에 파일을 등록해서 사용하기 때문에 로딩시간이 짧음 -->
+        <!-- 자신의 서버에 문제가 없는 이상 무조건 동작을 보장 -->
+    <!-- 2. CDN(contents delivery network) 를 통해서 jquery 파일을 실시간으로 로딩하여 사용 -->
+        <!-- 외부 서버에서 파일을 로딩하기 때문에 자신의 서버 자원을 소비하지 않음 (언제나 최신 버전을 유지하고 있음) -->
+        <!-- 외부 서버에 문제 발생 시 파일이 로딩되지 않음 -->
+        <!-- 외부 서버 및 여러가지 다른 문제로 인하여 로딩 속도의 문제가 발생함 -->
+    <!-- jquery는 기본적으로 css 선택자를 사용하여 html 태그를 선택함 -->
+    <!-- jquery 사용 방법 : jquery는 기본적으로 $ 기호를 사용함 -->
+        <!-- $ 기호가 나오면 jquery를 사용한다는 의미임 -->
+            <!-- $(css선택자).jquery함수(); -->
+            <!-- CSS 선택자를 그대로 사용하기 때문에 #은 id선택자, .은 class 선택자, html태그는 태그 선택자로 동작함 -->
+            <!-- jquery는 기본적으로 자바스크립트 문법을 그대로 사용하기 때문에 jquery의 함수를 제외하고는 자바스크립트와 동일함 -->
+    <!-- jquery 이벤트 : jquery의 이벤트, jquery 사이트의 문서를 참고 : https://api.jquery.com/ -->
+    <!-- 마우스 이벤트 -->
+        <!-- click / dblclick / contextmenu / mouseenter / mouseleave -->
+        <!-- click : 마우스의 클릭 이벤트 발생 (더블클릭 이벤트와 중복 등록하면 안됨) --> 
+        <!-- dblclick : 마우스 왼족 더블 클릭 이벤트 발생 -->
+        <!-- contextmenu : 마우스 오른쪽 버튼 클릭 이벤트 발생 -->
+        <!-- mouseenter : 마우스가 특정 html 태그 위로 올라갈 경우 발생 -->
+        <!-- mouseleave : 마우스가 특정 html 태그 위에서 나갈 경우 발생 -->
+        <!-- mousemove : 태그 위에서 이동할 경우 이벤트 -->
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script>
+
+    </script>
+</head>
+<body>
+    <button id="btn01" type="button">자바 스크립트로 버튼 이벤트</button>
+    <button id="btn02" type="button">jquery로 버튼 이벤트</button>
+    <button id="btn03" type="button">cdn으로 jquery 로딩하여 버튼 이벤트</button>
+
+    <script>
+        var btn01 = document.getElementById("btn01");
+
+        // 옛날 방식
+
+        // btn01.addEventListener("click", function() {
+        //     alert("자바스크립트로 버튼 이벤트 발생");
+        // });
+
+        $("#btn02").on("click", function() {
+            alert("jquery로 버튼 이벤트 발생");
+        });
+
+        $("#btn03").on("click",function() {
+            alert("cdn으로 jquery 로딩 후 버튼 이벤트 발생");
+        });
+    </script>
+</body>
+</html>

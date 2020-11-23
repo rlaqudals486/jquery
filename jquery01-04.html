@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 1-4</title>
+    <script src="./jquery-3.5.1.js"></script>
+
+
+    <!-- animate : jquery를 통해서 사용자 지정 애니메이션을 만들 수 있는 함수 -->
+        <!-- animate 를 이용하면 css의 animation 속성을 손쉽게 만들 수 있음 -->
+        <!-- 시간은 1/1000초 사용(slow, fast사용) -->
+        <!-- 애니메이션 동작을 할 속성을 여러개 지정할 수 있음 -->
+        <!-- 속성값 입력 시 상대값으로 데이터를 입력할 수 있음 -->
+        <!-- +=,-=을 사용하여 기존의 속성값에 데이터를 추가할 수 있음 -->
+        <!-- animate 에서 속성명을 입력할 때 css 속성명이 '-'가 들어가 있는 속성명은 '-'를 제거하고 이어지는 단어의 첫 영문자를 대문자로 입력 -->
+            <!-- fontSize, backgroundcolor, paddingLeft, marginTop -->
+        <!-- $(선택자).animate({속성명 : 속성값1, 속성명2:속성값2, ...}, 속도, 실행함수); -->
+
+    <!-- stop() : 애니메이션이 효과가 끝나기 전에 애니메이션을 중지시키는 함수 -->
+        <!-- stopAll : 기본값 false, 애니메이션 대기열도 함께 중지하는지 여부 -->
+        <!-- goToEnd : 기본값 false, 애니메이션이 stop()함수 실행과 동시에 완료로 처리할 것인지 여부 -->
+    <!-- 사용법 : $(선택자).stop(stopAll, goToEnd) -->
+    
+    <script>
+        $(document).ready(function() {
+            $("#div01 > .flip").on("click", function () {
+                $("#div01 > .panel").slideDown("slow");
+            });
+
+            $("#div02 > .flip").on("click", function () {
+                $("#div02 > .panel").slideUp("slow");
+            });
+
+            $("#div03 > .flip").on("click", function () {
+                $("#div03 > .panel").slideToggle("slow");
+            });
+
+            // animation 함수
+            $("#div04 > .ani1").on("click", function() {
+                $("#div04 > .ani1").animate({left : "250px"});
+            });
+
+            $("#div04 > .ani2").on("click", function() {
+                $("#div04 > .ani2").animate({
+                        left : "250px",
+                        opacity : "0.5",
+                        height: "150px",
+                        width : "150px"
+                    });
+            });
+
+            $("#div04 > .ani3").on("click", function() {
+                $("#div04 > .ani3").animate({
+                    left : "250px",
+                    height : "+=100px",
+                    width : "+=100px"
+                });
+            });
+
+            $("#div04 > .ani4").on("click", function() {
+                $("#div04 > .ani4").animate({
+                    height : "300px",
+                    opacity : "0.4",
+                }, "slow");
+                $("#div04 > .ani4").animate({
+                    width: "300px",
+                    opacity: "0.8"
+                }, "slow");
+                $("#div04 > .ani4").animate({
+                    height: "100px",
+                    opacity: "0.8"
+                }, "slow");
+                $("#div04 > .ani4").animate({
+                    height: "100px",
+                    opacity: "0.8"
+                }, "slow");
+            });
+
+        });
+    </script>
+
+    <style>
+        .panel, .flip {
+            padding: 5px;
+            text-align: center;
+            background-color: #e5eecc;
+            border: 1px solid lightgray;
+        }
+
+        .panel { padding: 50px;}
+
+        #div01 > .panel {display: none;}
+
+        #div04 {
+            position: relative;
+        }
+        
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+
+        #div04 > .ani1 {
+            position: absolute;
+            background-color: yellowgreen;
+        }
+
+        #div04 > .ani2 {
+            position:absolute;
+            background-color: yellowgreen;
+            top: 150px;
+            left: 150px;
+        }
+
+        #div04 > .ani3 {
+            position : absolute;
+            background-color: yellowgreen;
+            left: 0px;
+            top: 260px;
+        }
+
+        #div04 > .ani4 {
+            position: absolute;
+            background-color: yellowgreen;
+            left: 0px;
+            top: 370px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div01">
+    <h3>slide down</h3>
+    <div class="flip">클릭 시 아래의 div 영역 slideDown</div>
+    <div class="panel">클릭 시 표시되는 div 영역</div>
+
+    </div>
+    <br><hr><br>
+
+    <br>
+
+    <div id="div02">
+    <h3>slide up</h3>
+    <div class="flip">클릭 시 아래의 div 영역 숨김</div>
+    <div class="panel">클릭 시 숨겨지는 div 영역</div>
+    </div>
+
+    <br>
+
+    <div id="div03">
+    <h3>slide toggle</h3>
+    <div class="flip">클릭 시 아래의 div 영역 숨김/표시</div>
+    <div class="panel">클릭 시 숨김/표시되는 div 영역</div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div04">
+        <h3>animate</h3>
+        <div class="box ani1"></div>
+        <br>
+        <div class="box ani2">클릭 시 이동하면서 커지고 투명해짐</div>
+        <div class="box ani3">클릭 시 상대값을 사용하여 크기가 커짐</div>
+        <div class="box ani4">클릭 시 애니메이션 연계 동작</div>
+    </div>
+</body>
+</html>

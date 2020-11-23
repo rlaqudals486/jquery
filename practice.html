@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제</title>
+
+    <!-- 문제1) aniamte 함수를 사용하여 div 태그의 위치를 왼쪽에서 오른쪽으로 300px 이동 시키고, 이동 후 div 태그 내의 p 태그의 글자가 8px로 작아졌다가 다시 24px로 커지는 애니메이션을 완성하세요 -->
+        <!-- div 태그의 크기 width:200px, height: 200px -->
+        <!-- p태그의 글자:Hello(시작 시 글자크기 : 16px/1em, 작아졌을 경우 : 8px/0.5em, 커졌을 경우 : 24px/2em), 글자색 black -->
+
+    <script src="./jquery-3.5.1.js"></script>
+    <script src="./jquery.color-2.1.2.min.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+            $("#div01 > .ani1").on("click", function() {
+                $("#div01 > .ani1").animate({
+                    left : "300px",
+                    fontSize : "8px",
+                    color: "red"
+                });
+
+                $("#div01 > .ani1").animate({
+                    fontSize : "24px",
+                    color : "pink"
+                })
+            });
+        });
+    </script>
+
+    <style>
+
+    .box {
+        height: 200px;
+        width: 200px;
+        background-color: yellowgreen;
+    }
+    
+    #div01 > .ani1 {
+        position: absolute;
+    }
+ 
+    </style>
+</head>
+<body>
+    <div id = "div01">
+        <div class="box ani1">Hello</div>
+    </div>
+</body>
+</html>
