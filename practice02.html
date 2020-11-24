@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice02</title>
+
+    <script src="./jquery-3.5.1.js"></script>
+    <script src="./jquery.color-2.1.2.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#gogo").on("click", function() {
+                var txt = $("#a01").attr("href");
+                alert("attr() : " + txt);
+            });
+            
+            $("#Inpput").on("click", function() {
+                var txt = "https://" + $("#url").val();
+                $("#a01").attr("href", txt);
+                var name = $("#urlname").val();
+                $("#a01").text(name);
+                $("#a01").attr({
+                    "href": txt,
+                    "target": "_blank"
+                    }, function() {
+                        alert("url을 변경하였습니다.");
+                });
+                
+                // alert(txt + "주소로 저장하였습니다.");
+            });
+
+            
+        });
+            
+    </script>
+</head>
+<body>
+    <p><a href="https://www.dcinside.com" id="a01">디시</a></p>
+        <label>URL : 
+            <input type="text" id="url" placeholder="입력 ㄱ"><br>
+        </label>
+
+        <label>사이트명 : 
+            <input type="text" id="urlname" placeholder="사이트명 입력 ㄱ"><br>
+        </label>
+
+    <button id="Inpput">클릭 시 주소 저장</button>
+    <button id="gogo">클릭 시 현재 주소 확인</button>
+
+</body>
+</html>
